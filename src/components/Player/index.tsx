@@ -58,7 +58,7 @@ export const Player: React.FC<PlayerProps> = ({ bottom }) => {
   }
 
   return (
-    <div className={`${styles.playerContainer} ${bottom && styles.bottomMode}`}>
+    <div className={`${styles.playerContainer} ${bottom ? styles.bottomMode : ''}`}>
       <header>
         <img src="/playing.svg" alt="Tocando agora" />
         <strong>Tocando agora {bottom && 'teste'}</strong>
@@ -83,7 +83,7 @@ export const Player: React.FC<PlayerProps> = ({ bottom }) => {
         </div>
       )}
 
-      <footer className={!episode && styles.empty}>
+      <footer className={!episode ? styles.empty : ''}>
         <div className={styles.progress}>
           <span>{converDurationToTimeString(progress)}</span>
           <div className={styles.slider}>
@@ -127,7 +127,7 @@ export const Player: React.FC<PlayerProps> = ({ bottom }) => {
         <div className={styles.buttons}>
           <button
             onClick={toggleShuffle}
-            className={isShuffling && styles.isActive}
+            className={isShuffling ? styles.isActive : ''}
             type="button"
             disabled={!episode}
           >
@@ -161,7 +161,7 @@ export const Player: React.FC<PlayerProps> = ({ bottom }) => {
           </button>
           <button
             onClick={toggleLoop}
-            className={isLooping && styles.isActive}
+            className={isLooping ? styles.isActive : ''}
             type="button"
             disabled={!episode}
           >

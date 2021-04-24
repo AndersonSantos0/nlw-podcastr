@@ -2,6 +2,19 @@
     padding: 0 4rem;
     overflow-y: auto;
 
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+        transition: .2s;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #44444466;
+    }
+
     h2 {
         margin-top: 3rem;
         margin-bottom: 1.5rem;
@@ -18,8 +31,8 @@
         gap: 1.5rem;
 
         li {
-            background-color: var(--white);
-            border: 1px solid var(--gray-100);
+            background-color: var(--subBackground);
+            border: 1px solid var(--border);
             padding: 1.25rem;
             border-radius: 1.5rem;
             position: relative;
@@ -34,7 +47,7 @@
 
                 a {
                     display: block;
-                    color: var(--gray-800);
+                    color: var(--text);
                     font-family: Lexend, sans-serif;
                     font-weight: 600;
                     text-decoration: none;
@@ -91,11 +104,12 @@
 
         th, td {
             padding: 0.75rem 1rem;
-            border-bottom: 1px solid var(--gray-100);
+            border-bottom: 1px solid var(--border);
+            transition: .2s border-color;
         }
 
         th {
-            color: var(--gray-200);
+            color: var(--description);
             text-transform: uppercase;
             font: 500 0.75rem Lexend, sans-serif;
             text-align: left;
@@ -111,7 +125,7 @@
             }
 
             a {
-                color: var(--gray-800);
+                color: var(--text);
                 font-family: Lexend, sans-serif;
                 text-decoration: none;
                 line-height: 1.4rem;
@@ -128,8 +142,8 @@
 
                 width: 2rem;
                 height: 2rem;
-                background-color: var(--white);
-                border: 1px solid var(--gray-100);
+                background-color: var(--subBackground);
+                border: 1px solid var(--border);
                 border-radius: 0.5rem;
                 font-size: 0;
                 transition: .2s;

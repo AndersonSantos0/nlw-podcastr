@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const EpisodeContainer = styled.li`
-    background-color: var(--white);
-    border: 1px solid var(--gray-100);
+    background-color: var(--subBackground);
+    border: 1px solid var(--border);
     padding: 1.25rem;
     border-radius: 1.5rem;
     position: relative;
@@ -10,6 +10,7 @@ export const EpisodeContainer = styled.li`
     flex: 1;
     align-items: center;
     min-width: 430px;
+    transition: .2s background-color, .2s border-color;
 
     button{
         right: 2rem;
@@ -17,11 +18,11 @@ export const EpisodeContainer = styled.li`
         position: absolute;
         width: 2.5rem;
         height: 2.5rem;
-        background-color: var(--white);
-        border: 1px solid var(--gray-100);
+        background-color: var(--subBackground);
+        border: 1px solid var(--border);
         border-radius: 0.675rem;
         font-size: 0;
-        transition: .2s;
+        transition: .2s background-color, .2s border-color;
 
         img {
             width: 1.5rem;
@@ -54,7 +55,7 @@ export const EpisodeDetails = styled.div`
 
 export const EpisodeTitle = styled.a`
     display: block;
-    color: var(--gray-800);
+    color: var(--text);
     font-family: Lexend, sans-serif;
     font-size: 1rem;
     font-weight: 600;
@@ -77,6 +78,7 @@ export const EpisodeMembers = styled.p`
 
 export const EpisodeTime = styled.div`
     display: flex;
+    position: relative;
 
     span {
         display: inline-block;
@@ -87,18 +89,19 @@ export const EpisodeTime = styled.div`
             margin-left: 0.5rem;
             padding-left: 0.5rem;
             position: relative;
-        }
 
-        &::before{
-            content: "";
-            width: 4px;
-            height: 4px;
-            border-radius: 2px;
-            background: #ddd;
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translate(-50%, -50%);
+            &::before{
+                content: "";
+                width: 4px;
+                height: 4px;
+                border-radius: 2px;
+                background: #ddd;
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
         }
+  
     }
 `

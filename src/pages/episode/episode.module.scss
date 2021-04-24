@@ -8,9 +8,10 @@
     margin: 0 auto;
 
     .thumbnailContainer{
-        position: relative;
+        position: relative; 
 
-        img {
+        > div {
+            box-shadow: 0 0 2px var(--secondary);
             border-radius: 1rem;
         }
 
@@ -18,7 +19,7 @@
             width: 3rem;
             height: 3rem;
             border-radius: 0.75rem;
-            border: 0;
+            border: none;
             position: absolute;
             z-index: 5;
             transition: .2s;
@@ -27,14 +28,14 @@
             &:first-child {
                 left: 0;
                 top: 50%;
-                background-color: var(--purple-500);
+                background-color: var(--secondary);
                 transform: translate(-50%, -50%);
             }
 
             &:last-child {
                 right: 0;
                 top: 50%;
-                background-color: var(--green-500);
+                background-color: var(--active);
                 transform: translate(50%, -50%);
             }
 
@@ -46,7 +47,7 @@
 
     header {
         padding-bottom: 1rem;
-        border-bottom: 1px solid var(--gray-100);
+        border-bottom: 1px solid var(--border);
 
         h1 {
             margin-top: 2rem;
@@ -80,7 +81,7 @@
     .description {
         margin-top: 2rem;
         line-height: 1.675rem;
-        color: var(--gray-800);
+        color: var(--text);
 
         p{
             margin: 1.5rem 0;
