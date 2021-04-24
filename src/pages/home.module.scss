@@ -1,7 +1,6 @@
 .homepage {
     padding: 0 4rem;
-    height: calc(100vh - 6.5rem);
-    overflow-y: scroll;
+    overflow-y: auto;
 
     h2 {
         margin-top: 3rem;
@@ -13,7 +12,8 @@
 
     ul {
         list-style: none;
-        display: grid;
+        display: flex;
+        flex-wrap: wrap;
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
 
@@ -24,13 +24,8 @@
             border-radius: 1.5rem;
             position: relative;
             display: flex;
+            flex: 1;
             align-items: center;
-
-            img {
-                height: 6rem;
-                width: 6rem;
-                border-radius: 1rem;
-            }
 
             .episodeDetails {
                 flex: 1;
@@ -84,29 +79,6 @@
                 }
             }
 
-            button {
-                position: absolute;
-                right: 2rem;
-                bottom: 2rem;
-
-                width: 2.5rem;
-                height: 2.5rem;
-                background-color: var(--white);
-                border: 1px solid var(--gray-100);
-                border-radius: 0.675rem;
-                font-size: 0;
-                transition: .2s;
-
-                > img {
-                    min-width: 0;
-                    width: 1.5rem;
-                    height: 1.5rem;
-                }
-
-                &:hover{
-                    filter: brightness(.95);
-                }
-            }
         }
     }
 }

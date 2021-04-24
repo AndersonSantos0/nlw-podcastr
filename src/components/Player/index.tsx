@@ -6,7 +6,11 @@ import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css'
 import { converDurationToTimeString } from '../../utils/converDurationToTimeString'
 
-export const Player: React.FC = () => {
+interface PlayerProps {
+  bottom?: boolean
+}
+
+export const Player: React.FC<PlayerProps> = ({ bottom }) => {
   const {
     episodeList,
     currentEpisodeIndex,
@@ -21,7 +25,7 @@ export const Player: React.FC = () => {
     setPlayingState,
     hasNext,
     hasPrevious,
-    clearPlayerState
+    clearPlayerState,
   } = usePlayer()
 
   const audioRef = useRef<HTMLAudioElement>(null)
@@ -33,7 +37,7 @@ export const Player: React.FC = () => {
     isPlaying ? audioRef.current?.play() : audioRef.current?.pause()
   }, [isPlaying])
 
-  const setupProgressListener = () =>{
+  const setupProgressListener = () => {
     audioRef.current.currentTime = 0
     audioRef.current.addEventListener('timeupdate', () => {
       setProgress(Math.floor(audioRef.current.currentTime))
@@ -45,8 +49,8 @@ export const Player: React.FC = () => {
     setProgress(amount)
   }
 
-  const handleEpisodeEnded = () =>{
-    if(hasNext) {
+  const handleEpisodeEnded = () => {
+    if (hasNext) {
       playNext()
     } else {
       clearPlayerState()
@@ -54,10 +58,10 @@ export const Player: React.FC = () => {
   }
 
   return (
-    <div className={styles.playerContainer}>
+    <div className={`${styles.playerContainer} ${bottom && styles.bottomMode}`}>
       <header>
         <img src="/playing.svg" alt="Tocando agora" />
-        <strong>Tocando agora</strong>
+        <strong>Tocando agora {bottom && 'teste'}</strong>
       </header>
 
       {episode ? (
@@ -68,8 +72,10 @@ export const Player: React.FC = () => {
             src={episode.thumbnail}
             objectFit={'cover'}
           />
-          <strong>{episode.title}</strong>
-          <span>{episode.members}</span>
+          <div className={styles.currentEpisodeDetails}>
+            <strong>{episode.title}</strong>
+            <span>{episode.members}</span>
+          </div>
         </div>
       ) : (
         <div className={styles.emptyPlayer}>
@@ -110,7 +116,7 @@ export const Player: React.FC = () => {
             loop={isLooping}
             onPlay={() => setPlayingState(true)}
             onPause={() => setPlayingState(false)}
-            onLoadedMetadata={()=> setupProgressListener()}
+            onLoadedMetadata={() => setupProgressListener()}
             onEnded={handleEpisodeEnded}
             ref={audioRef}
             src={episode.url}

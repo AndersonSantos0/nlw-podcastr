@@ -9,6 +9,7 @@ import { api } from '../services/api'
 import styles from './home.module.scss'
 import { usePlayer } from '../contexts/PlayerContext'
 import Head from 'next/head'
+import LastEpisodeItem from '../components/lastEpisodeItem/lastEpisodeItem'
 
 interface HomeProps {
   allEpisodes: episodeInterface[]
@@ -39,10 +40,18 @@ const Home: React.FC<HomeProps> = ({ latestEpisodes, allEpisodes }) => {
       <section className={styles.latestEpisodes}>
         <h2>Últimos lançamentos</h2>
 
-        <ul>
+        <ul style={{width: "100%"}} >
           {latestEpisodes.map((episode, index) => {
             return (
-              <li key={episode.id}>
+              <LastEpisodeItem
+                episode={episode}
+                index={index}
+                episodeList={episodeList}
+                onPlayHandle={() => playList(episodeList, index)}
+                key={episode.id}
+              />
+
+              /*<li key={episode.id}>
                 <Image
                   width={192}
                   height={192}
@@ -63,7 +72,7 @@ const Home: React.FC<HomeProps> = ({ latestEpisodes, allEpisodes }) => {
                 <button type={'button'} onClick={() => playList(episodeList, index)}>
                   <img src="/play-green.svg" alt="Tocar episódio" />
                 </button>
-              </li>
+              </li>*/
             )
           })}
         </ul>
@@ -104,7 +113,12 @@ const Home: React.FC<HomeProps> = ({ latestEpisodes, allEpisodes }) => {
                   <td style={{ width: 100 }}>{episode.publishedAt}</td>
                   <td>{episode.durationAsString}</td>
                   <td>
-                    <button type={'button'} onClick={() => playList(episodeList, index + latestEpisodes.length)}>
+                    <button
+                      type={'button'}
+                      onClick={() =>
+                        playList(episodeList, index + latestEpisodes.length)
+                      }
+                    >
                       <img src="/play-green.svg" alt="Play episode" />
                     </button>
                   </td>
