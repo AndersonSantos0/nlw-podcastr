@@ -23,7 +23,7 @@ export const Header: React.FC<HeaderProps> = ({toggleTheme}) => {
       <Link href={'/'}>
         <img src="/logo.svg" alt="Podcastr" />
       </Link>
-      <p>O melhor para você ouvir sempre {title} </p>
+      <p>O melhor para você ouvir sempre</p>
       <div>
         <span>{currentDate}</span>
         <DarkModeSwitcher theme={title} toggleTheme={toggleTheme} />

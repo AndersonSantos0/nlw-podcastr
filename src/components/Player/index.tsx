@@ -61,7 +61,7 @@ export const Player: React.FC<PlayerProps> = ({ bottom }) => {
     <div className={`${styles.playerContainer} ${bottom ? styles.bottomMode : ''}`}>
       <header>
         <img src="/playing.svg" alt="Tocando agora" />
-        <strong>Tocando agora {bottom && 'teste'}</strong>
+        <strong>Tocando agora</strong>
       </header>
 
       {episode ? (
