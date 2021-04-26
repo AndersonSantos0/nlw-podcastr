@@ -6,7 +6,7 @@
 
 <hr />
 
-### <img height="12" src="./public/vercel-icon-dark.png" /> [Vercel project](https://podcastr-delta.vercel.app)
+### <img height="14" src="./public/vercel-icon-dark.png" /> [Vercel project](https://podcastr-delta.vercel.app)
 
 ## Usage
 
