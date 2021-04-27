@@ -34,4 +34,5 @@ $ yarn dev or npm run dev
 
 # production build
 $ yarn build or npm run build
+$ yarn start or npm run start
 ```
