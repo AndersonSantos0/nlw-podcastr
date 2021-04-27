@@ -60,7 +60,7 @@ const Home: React.FC<HomeProps> = ({ latestEpisodes, allEpisodes }) => {
         <table cellSpacing={0}>
           <thead>
             <tr>
-              <th></th>
+              <th className={"thumbnail"}></th>
               <th>Podcast</th>
               <th className={styles.membersTH}>Integrantes</th>
               <th className={styles.dateTH}>Data</th>
@@ -72,7 +72,7 @@ const Home: React.FC<HomeProps> = ({ latestEpisodes, allEpisodes }) => {
             {allEpisodes.map((episode, index) => {
               return (
                 <tr key={episode.id}>
-                  <td style={{ width: 72 }}>
+                  <td className={"thumbnail"} style={{ width: 72 }}>
                     <Image
                       width={120}
                       height={120}

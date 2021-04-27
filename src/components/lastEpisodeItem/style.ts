@@ -9,7 +9,7 @@ export const EpisodeContainer = styled.li`
     display: flex;
     flex: 1;
     align-items: center;
-    min-width: 430px;
+    min-width: 320px;
     transition: .2s background-color, .2s border-color;
 
     button{

@@ -9,3 +9,14 @@
         font-size: 87.5%;
     }
 }
+
+@media (max-width: 440px){
+    .EpisodeContainer{
+        min-width: 200px !important;
+  
+    }
+    
+    .thumbnail{
+        display: none;
+    }
+}

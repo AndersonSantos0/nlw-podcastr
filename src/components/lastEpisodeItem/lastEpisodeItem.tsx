@@ -35,8 +35,8 @@ const LastEpisodeItem: React.FC<lastEpisodeItemProps> = ({
   index,
 }) => {
   return (
-    <EpisodeContainer>
-      <EpisodeThumbnail>
+    <EpisodeContainer className={'EpisodeContainer'}>
+      <EpisodeThumbnail className={'thumbnail'}>
         <Image
           width={192}
           height={192}
