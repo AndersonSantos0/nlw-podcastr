@@ -21,6 +21,11 @@
     strong{
         font-family: Lexend, sans-serif;
         font-weight: 600;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     footer{
@@ -52,7 +57,7 @@
 
         .currentEpisodeDetails{
             padding-left: 1rem;
-            max-width: 40vh;
+            max-width: 40vw;
             margin: auto 0;
 
             strong{
@@ -133,7 +138,6 @@
     }
 
     strong {
-        display: block;
         margin-top: 2rem;
         font: 600 1.25rem Lexend, sans-serif;
         line-height: 1.75rem;
