@@ -13,20 +13,11 @@ import light from '../styles/themes/light'
 import dark from '../styles/themes/dark'
 
 function MyApp({ Component, pageProps }) {
-  const [bottomMode, setBottomMode] = useState(false)
   const [theme, setTheme] = usePersistedState('theme', light)
 
   const ToggleTheme = () =>{
     setTheme(theme.title === 'light' ? dark : light)
   }
-
-  useEffect(() => {
-    setBottomMode(window.innerWidth <= 1024)
-    window.addEventListener('resize', () =>
-      setBottomMode(window.innerWidth <= 1024)
-    )
-    return () => window.removeEventListener('resize', () => {})
-  }, [])
 
   return (
     <ThemeProvider theme={theme}>
@@ -37,7 +28,7 @@ function MyApp({ Component, pageProps }) {
             <Component {...pageProps} />
             <GlobalStyles />
           </main>
-          <Player bottom={bottomMode} />
+          <Player/>
         </div>
       </PlayerContextProvider>
     </ThemeProvider>

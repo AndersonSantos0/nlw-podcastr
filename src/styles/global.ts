@@ -22,6 +22,7 @@ export default createGlobalStyle`
     body {
         background-color: var(--background);
         transition: .2s background-color;
+        overflow: hidden;
     }
 
     body, input, textarea, button{

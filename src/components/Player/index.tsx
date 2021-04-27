@@ -6,11 +6,7 @@ import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css'
 import { converDurationToTimeString } from '../../utils/converDurationToTimeString'
 
-interface PlayerProps {
-  bottom?: boolean
-}
-
-export const Player: React.FC<PlayerProps> = ({ bottom }) => {
+export const Player: React.FC = () => {
   const {
     episodeList,
     currentEpisodeIndex,
@@ -58,7 +54,7 @@ export const Player: React.FC<PlayerProps> = ({ bottom }) => {
   }
 
   return (
-    <div className={`${styles.playerContainer} ${bottom ? styles.bottomMode : ''}`}>
+    <div className={`${styles.playerContainer}`}>
       <header>
         <img src="/playing.svg" alt="Tocando agora" />
         <strong>Tocando agora</strong>
