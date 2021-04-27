@@ -50,29 +50,6 @@ const Home: React.FC<HomeProps> = ({ latestEpisodes, allEpisodes }) => {
                 onPlayHandle={() => playList(episodeList, index)}
                 key={episode.id}
               />
-
-              /*<li key={episode.id}>
-                <Image
-                  width={192}
-                  height={192}
-                  objectFit={'cover'}
-                  src={episode.thumbnail}
-                  alt={episode.title}
-                />
-
-                <div className={styles.episodeDetails}>
-                  <Link href={`/episode/${episode.id}`}>
-                    <a>{episode.title}</a>
-                  </Link>
-                  <p>{episode.members}</p>
-                  <span>{episode.publishedAt}</span>
-                  <span>{episode.durationAsString}</span>
-                </div>
-
-                <button type={'button'} onClick={() => playList(episodeList, index)}>
-                  <img src="/play-green.svg" alt="Tocar episódio" />
-                </button>
-              </li>*/
             )
           })}
         </ul>
@@ -85,9 +62,9 @@ const Home: React.FC<HomeProps> = ({ latestEpisodes, allEpisodes }) => {
             <tr>
               <th></th>
               <th>Podcast</th>
-              <th>Integrantes</th>
-              <th>Data</th>
-              <th>Duração</th>
+              <th className={styles.membersTH}>Integrantes</th>
+              <th className={styles.dateTH}>Data</th>
+              <th className={styles.durationTH}>Duração</th>
               <th></th>
             </tr>
           </thead>
@@ -109,9 +86,13 @@ const Home: React.FC<HomeProps> = ({ latestEpisodes, allEpisodes }) => {
                       <a>{episode.title}</a>
                     </Link>
                   </td>
-                  <td>{episode.members}</td>
-                  <td style={{ width: 100 }}>{episode.publishedAt}</td>
-                  <td>{episode.durationAsString}</td>
+                  <td className={styles.membersTD}>
+                    <p>{episode.members}</p>
+                  </td>
+                  <td className={styles.dateTD}>{episode.publishedAt}</td>
+                  <td className={styles.durationTD}>
+                    {episode.durationAsString}
+                  </td>
                   <td>
                     <button
                       type={'button'}

@@ -54,7 +54,12 @@ export const EpisodeDetails = styled.div`
 `
 
 export const EpisodeTitle = styled.a`
-    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    max-width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: var(--text);
     font-family: Lexend, sans-serif;
     font-size: 1rem;
@@ -63,14 +68,17 @@ export const EpisodeTitle = styled.a`
     line-height: 1.4rem;
     cursor: pointer;
 
+
     &:hover {
         text-decoration: underline;
     }
 `
 
 export const EpisodeMembers = styled.p`
-    max-width: 16rem;
-    white-space: nowrap;
+    max-width: 70%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 0.875rem;

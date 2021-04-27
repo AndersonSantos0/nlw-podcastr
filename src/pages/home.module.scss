@@ -29,70 +29,6 @@
         flex-wrap: wrap;
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
-
-        li {
-            background-color: var(--subBackground);
-            border: 1px solid var(--border);
-            padding: 1.25rem;
-            border-radius: 1.5rem;
-            position: relative;
-            display: flex;
-            flex: 1;
-            align-items: center;
-
-            .episodeDetails {
-                flex: 1;
-                margin-left: 1rem;
-                width: 1%;
-
-                a {
-                    display: block;
-                    color: var(--text);
-                    font-family: Lexend, sans-serif;
-                    font-weight: 600;
-                    text-decoration: none;
-                    line-height: 1.4rem;
-
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-
-                p {
-                    font-size: 0.875rem;
-                    margin-top: 0.5rem;
-                    max-width: 70%;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                }
-
-                span {
-                    display: inline-block;
-                    margin-top: 0.5rem;
-                    font-size: 0.875rem;
-
-                    &:last-child {
-                        margin-left: 0.5rem;
-                        padding-left: 0.5rem;
-                        position: relative;
-                    }
-
-                    &::before{
-                        content: "";
-                        width: 4px;
-                        height: 4px;
-                        border-radius: 2px;
-                        background: #ddd;
-                        position: absolute;
-                        left: 0;
-                        top: 50%;
-                        transform: translate(-50%, -50%);
-                    }
-                }
-            }
-
-        }
     }
 }
 
@@ -115,13 +51,28 @@
             text-align: left;
         }
 
+        .dateTD{
+            min-width: 100px;
+        }
+
         td{
             font-size: .875rem;
 
-            img{
-                width: 2.5rem;
-                height: 2.5rem;
-                border-radius: .5rem;
+            > div{
+                img{
+                    min-width: 3rem !important;
+                    min-height: 3rem !important;
+                    border-radius: .5rem;
+                }
+            }
+            
+
+            p {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             a {
@@ -130,6 +81,11 @@
                 text-decoration: none;
                 line-height: 1.4rem;
                 font-size: 1rem;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+                text-overflow: ellipsis;
 
                 &:hover{
                     text-decoration: underline;
@@ -159,5 +115,29 @@
                 }
             }
         }
+    }
+}
+
+@media (max-width: 1190px) and (min-width: 1024px){
+    .membersTH, .membersTD{
+        display: none;
+    }
+}
+
+@media(max-width: 670px){
+    .membersTH, .membersTD{
+        display: none;
+    }
+}
+
+@media(max-width: 600px){
+    .duratinTH, .durationTD{
+        display: none;
+    }
+}
+
+@media(max-width: 500px){
+    .dateTH, .dateTD{
+        display: none;
     }
 }
